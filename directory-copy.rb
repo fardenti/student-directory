@@ -22,9 +22,8 @@ def print_header
   puts "-------------"
 end
 def print(students)
-  students.each_with_index do |student, index|
-    index += 1
-    puts "#{index}. #{student[:name]} (#{student[:cohort]} cohort)"
+  students.each do |student|
+    puts "#{student[:name]} (#{student[:cohort]} cohort)"
   end
 end
 def print_footer(names)
