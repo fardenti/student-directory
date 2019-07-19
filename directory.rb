@@ -5,18 +5,25 @@ def input_students
   students = []
   # get the first name
   name = gets.chomp
-  puts "Student's age:"
-  age = gets.chomp
-  puts "Student's Location:"
-  location = gets.chomp
-  puts "Student's Gender:"
-  gender = gets.chomp
   # while the name is not empty, repeat this code
   while !name.empty? do
+    puts "Cohort:"
+    cohort = gets.chomp
+    cohort = "November" if cohort.empty?
+    puts "Age:"
+    age = gets.chomp
+    age = "__" if age.empty?
+    puts "Gender:"
+    gender = gets.chomp
+    gender = "__" if gender.empty?
+    puts "Location:"
+    location = gets.chomp
+    location = "__" if location.empty?
     # add the student hash to the array
-    students << {name: name, cohort: :november, age: age, location: location, gender: gender}
+    students << {name: name, cohort: cohort, age: age, gender: gender, location: location}
     puts "Now we have #{students.count} students"
     # get another name from the user
+    puts "Name:"
     name = gets.chomp
   end
   # return the array of students
@@ -29,7 +36,7 @@ end
 def print(students)
   while true do
     students.each_with_index do |student, index|
-      puts "#{index + 1}. Name:#{student[:name].center(7)}, From: (#{student[:cohort]} cohort), Age: #{student[:age].center(7)}, From: #{student[:location].center(7)}, Gender: #{student[:gender].center(7)}"
+      puts "#{index + 1}. Name:#{student[:name].center(7)}, From: (#{student[:cohort]} cohort), #{student[:age]} years old, #{student[:gender]}, From: #{student[:location]}"
     end
     break
   end
