@@ -38,7 +38,11 @@ def print(students)
     students.each_with_index do |student, index|
       puts "#{index + 1}. Name:#{student[:name].center(7)}, From: (#{student[:cohort]} cohort), #{student[:age]} years old, #{student[:gender]}, From: #{student[:location]}"
     end
+    students.group_by do |key, value|
+      value[:cohorts]
+      puts
     break
+
   end
 end
 def print_footer(names)
